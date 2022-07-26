@@ -17,11 +17,13 @@
 static const char* steam_paths[] = {
     "/.steam/steam/steamapps/compatdata",
     "/.local/share/Steam/steamapps/compatdata",
+    "/.steam/debian-installation/steamapps/compatdata",
 };
 
 static const char* runtime_paths[] = {
     "/.local/share/Steam/ubuntu12_32/steam-runtime",
     "/.steam/ubuntu12_32/steam-runtime",
+    "/.steam/debian-installation/ubuntu12_32/steam-runtime",
 };
 
 
@@ -86,7 +88,7 @@ std::tuple<QProcessEnvironment, QString, bool> make_steam_environ(const QString&
 
 QString proton_path(const QString& proton_path)
 {
-    return proton_path + "/dist/bin/wine";
+    return proton_path + "/files/bin/wine";
 }
 
 #endif

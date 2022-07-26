@@ -57,6 +57,8 @@ void wine::pose(const double *headpose, const double*)
     }
 }
 
+#include <iostream>
+
 module_status wine::initialize()
 {
 #ifndef OTR_WINE_NO_WRAPPER
@@ -103,7 +105,11 @@ module_status wine::initialize()
 
     wrapper.setProcessEnvironment(env);
     wrapper.setWorkingDirectory(OPENTRACK_BASE_PATH);
+    std::cout << "AAAAAAAAAAAAA" << std::endl;
     wrapper.start(wine_path, { library_path + "opentrack-wrapper-wine.exe.so" });
+    std::cout << wine_path.toStdString() << "Xxxx" << library_path.toStdString() << "opentrack-wrapper-wine.exe.so" <<  std::endl;
+
+    std::cout << wrapper.state();
 #endif
 
     if (lck_shm.success())
